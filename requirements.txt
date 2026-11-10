@@ -1,0 +1,11 @@
+pandas==3.1.1
+numpy==2.5.4
+scikit-learn==1.9.1
+xgboost==3.4.1
+optuna==5.0.0
+matplotlib==3.11.2
+seaborn==0.13.2
+kagglehub==1.0.3
+joblib==1.6.0
+jupyter
+ipykernel==7.4.0
