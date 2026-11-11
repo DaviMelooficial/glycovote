@@ -122,6 +122,20 @@ Para que a comparação com o baseline fosse justa, seguimos três regras:
 
 ![Comparação entre as etapas](reports/figures/comparacao_etapas.png)
 
+### Tempo de execução
+
+Pipeline completo, do CSV até a previsão no teste (sem contar imports e download), medido na última célula do notebook
+(Apple Silicon, 10 núcleos):
+
+| | Tempo | Acurácia | ROC-AUC |
+|---|---|---|---|
+| Baseline | 8,9 s | 0,7401 | 0,8160 |
+| GlycoVote final, incluindo a busca de hiperparâmetros | 336,6 s | 0,7499 | 0,8235 |
+| GlycoVote final, só o treino (hiperparâmetros já conhecidos) | 9,0 s | 0,7499 | 0,8235 |
+
+Quase todo o custo extra é a busca do Optuna (55 tentativas × 5 folds), que roda uma única vez. Para treinar, o modelo
+final custa o mesmo que o baseline.
+
 **Hiperparâmetros encontrados (M1):**
 
 - Regressão Logística: `C=0.031`
